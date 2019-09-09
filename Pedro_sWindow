@@ -1,0 +1,101 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+
+public class secondWindow {
+
+	private JFrame frame;
+	private JTextField textJobID;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					secondWindow window = new secondWindow();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public secondWindow() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(64, 224, 208));
+		frame.setBounds(100, 100, 800, 500);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JButton btnSend = new JButton("Send");
+		btnSend.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnSend.setFont(new Font("Calibri", Font.BOLD, 15));
+		btnSend.setBounds(283, 405, 200, 30);
+		frame.getContentPane().add(btnSend);
+		
+		JLabel lblQueue = new JLabel("Queue");
+		lblQueue.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblQueue.setBounds(210, 24, 118, 30);
+		frame.getContentPane().add(lblQueue);
+		
+		JLabel lblJobID = new JLabel("Job ID");
+		lblJobID.setHorizontalAlignment(SwingConstants.LEFT);
+		lblJobID.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblJobID.setBounds(210, 122, 118, 30);
+		frame.getContentPane().add(lblJobID);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(new Font("Calibri", Font.PLAIN, 15));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"PDO", "CO"}));
+		comboBox.setToolTipText("");
+		comboBox.setBounds(210, 57, 230, 31);
+		frame.getContentPane().add(comboBox);
+		
+		textJobID = new JTextField();
+		textJobID.setFont(new Font("Calibri", Font.PLAIN, 15));
+		textJobID.setBounds(210, 156, 230, 31);
+		frame.getContentPane().add(textJobID);
+		textJobID.setColumns(10);
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Calibri", Font.PLAIN, 15));
+		textField.setColumns(10);
+		textField.setBounds(210, 244, 350, 135);
+		frame.getContentPane().add(textField);
+		
+		JLabel lblQuestion = new JLabel("Question");
+		lblQuestion.setHorizontalAlignment(SwingConstants.LEFT);
+		lblQuestion.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblQuestion.setBounds(210, 211, 118, 30);
+		frame.getContentPane().add(lblQuestion);
+	}
+}
